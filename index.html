@@ -2,15 +2,30 @@
 <html>
 <head>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; background: #000; display: flex; flex-direction: column; }
+        /* إعدادات أساسية لإلغاء أي هوامش ومنع السكرول */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%;
+            background: #000; 
+            overflow: hidden; /* لمنع ظهور شريط التمرير نهائياً */
+            display: flex; 
+            flex-direction: column; 
+        }
         
-        /* المشغل يأخذ كل المساحة المتاحة ما عدا مساحة الإعلان */
-        #video { width: 100%; flex-grow: 1; background: #000; }
+        /* جعل الفيديو يأخذ كامل العلو المتاح ناقصاً ارتفاع الإعلان */
+        #video { 
+            width: 100%; 
+            height: calc(100vh - 60px); /* 60px هو ارتفاع الإعلان */
+            background: #000; 
+            object-fit: contain; /* لضمان عدم قص أطراف الفيديو */
+        }
         
-        /* الشريط السفلي للإعلانات */
+        /* حاوية الإعلان الثابتة في الأسفل */
         .ad-container { 
             width: 100%; 
-            height: 60px; /* مساحة ثابتة للإعلان */
+            height: 60px; 
             background: #000; 
             display: flex; 
             justify-content: center; 
@@ -49,7 +64,8 @@
             hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play(); });
         }
     </script>
-      <script src="ad-manager.js"></script>
+          <script src="ad-manager.js"></script>
+
 </body>
 </html>
 

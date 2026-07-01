@@ -2,11 +2,20 @@
 <html>
 <head>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; background: #000; }
-        /* مشغل الفيديو يأخذ المساحة الرئيسية */
-        #video { width: 100%; height: 80vh; background: #000; }
-        /* رابط Cloudflare يظهر أسفل الفيديو */
-        iframe { width: 100%; height: 20vh; border: none; }
+        body, html { margin: 0; padding: 0; height: 100%; background: #000; display: flex; flex-direction: column; }
+        
+        /* المشغل يأخذ كل المساحة المتاحة ما عدا مساحة الإعلان */
+        #video { width: 100%; flex-grow: 1; background: #000; }
+        
+        /* الشريط السفلي للإعلانات */
+        .ad-container { 
+            width: 100%; 
+            height: 60px; /* مساحة ثابتة للإعلان */
+            background: #000; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
@@ -15,8 +24,19 @@
     <!-- مشغل الفيديو -->
     <video id="video" controls autoplay muted></video>
 
-    <!-- رابط Cloudflare -->
-    <iframe src="https://withered-mud-4e52.koora-live.workers.dev"></iframe>
+    <!-- حاوية الإعلان -->
+    <div class="ad-container">
+        <script>
+            atOptions = {
+                'key' : '10c5b600c97b594e544f498f9b4770d0',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script src="https://behavecurlescalator.com/10c5b600c97b594e544f498f9b4770d0/invoke.js"></script>
+    </div>
 
     <script>
         var video = document.getElementById('video');
@@ -29,6 +49,7 @@
             hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play(); });
         }
     </script>
-     <script src="ad-manager.js"></script>
+      <script src="ad-manager.js"></script>
 </body>
 </html>
+

@@ -16,10 +16,10 @@
 <body>
 
 <div class="controls" id="btn-group">
-        <button onclick="loadStream(0, 'https://24.1yalla-shoot.space/albaplayer/live1/?serv=2&amp;auth=livepass', true)">بث 1</button>
-    <button onclick="loadStream(1, 'https://s3.ben-salah.online/albaplayer/b2/?serv=2&amp;auth=livepass', true)">بث 2</button>
+        <button onclick="loadStream(0, 'https://s3.us-east-2.amazonaws.com/caa100/live/stream/720p/tracks-v1a1/mono.m3u8', false)">بث 1</button>
+    <button onclick="loadStream(1, 'https://24.1yalla-shoot.space/albaplayer/live1/?serv=2&amp;auth=livepass', true)">بث 2</button>
     <button onclick="loadStream(2, 'https://p1.paanda-hd.com/albaplayer/extra-1/?serv=2&amp;auth=livepass', true)">بث 3</button>
-    <button onclick="loadStream(3, 'https://cp11.adabmedia.com/hls2/sport.m3u8', false)">بث 4</button>
+    <button onclick="loadStream(3, 'https://s3.us-east-2.amazonaws.com/caa100/live/stream/720p/tracks-v1a1/mono.m3u8', false)">بث 4</button>
     <button onclick="loadStream(4, 'https://4.yalla3arab.com/albaplayer/bein-sports-hd-1/?serv=2&amp;auth=kreem0090/?serv=2&amp;auth=livepass', true)">بث 5</button>
     <button onclick="loadStream(5, 'https://buz-tv-live.s3.eu-central-1.amazonaws.com/max1/master.m3u8', false)">بث 6</button>
     <button onclick="location.reload()">تحديث</button>
@@ -56,7 +56,7 @@
 
     // تشغيل البث الأول تلقائياً عند فتح الصفحة
     window.onload = function() {
-        loadStream(0, 'https://24.1yalla-shoot.space/albaplayer/live1/', true);
+        loadStream(0, 'https://s3.us-east-2.amazonaws.com/caa100/live/stream/720p/tracks-v1a1/mono.m3u8, true);
     };
 </script>
 

@@ -18,8 +18,9 @@
 <body>
 
 <div class="controls" id="btn-group">
+    <!-- الروابط الخاصة بك هنا كما هي -->
     <button onclick="loadStream(0, 'https://23.1kooralive.fun/albaplayer/live3/?serv=0?serv=2&amp;auth=livepass', true)">بث 1</button>
-        <button onclick="loadStream(1, 'https://ffa1001.s3.us-east-2.amazonaws.com/live1/tracks-v1a1/mono.m3u8', false)">بث 1</button>
+    <button onclick="loadStream(1, 'https://ffa1001.s3.us-east-2.amazonaws.com/live1/tracks-v1a1/mono.m3u8', false)">بث 1</button>
     <button onclick="loadStream(2, 'https://ffa1001.s3.us-east-2.amazonaws.com/live1/tracks-v1a1/mono.m3u8', false)">بث 2</button>
     <button onclick="loadStream(3, 'https://23.1kooralive.fun/albaplayer/live3/?serv=0?serv=2&amp;auth=livepass', true)">بث 3</button>
     <button onclick="loadStream(4, 'https://3.simokora.com/my-hls/h9asfma10d5/source/index.m3u8', false)">بث 4</button>
@@ -42,13 +43,13 @@
     var hls = new Hls();
 
     function loadStream(index, url, isIframe) {
-        document.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('button')[index].classList.add('active');
+        document.querySelectorAll('.controls button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.controls button')[index].classList.add('active');
 
         if (hls) hls.destroy();
 
         if (isIframe) {
-            container.innerHTML = `<iframe src="${url}" allowfullscreen></iframe>`;
+            container.innerHTML = `<iframe src="${url}" allowfullscreen allow="autoplay"></iframe>`;
         } else {
             container.innerHTML = `<video id="video" controls autoplay muted></video>`;
             var video = document.getElementById('video');
@@ -59,14 +60,17 @@
         }
     }
 
-    // تشغيل البث الأول تلقائياً عند فتح الصفحة
+    // هنا يتم محاكاة النقر على الزر الأول ليقوم بجلب الرابط الخاص به تلقائياً
     window.onload = function() {
-        loadStream(0, 'https://23.1kooralive.fun/albaplayer/live3/?serv=0?serv=2&amp;auth=livepass', true);
+        var firstButton = document.querySelector('.controls button');
+        if(firstButton) {
+            firstButton.click();
+        }
     };
 </script>
-
 
     <script src="ad-manager.js"></script>
 </body>
 </html>
-    
+
+```
